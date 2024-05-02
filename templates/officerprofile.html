@@ -1,0 +1,78 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Complaint Management - Django</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style type="text/css">
+
+html {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.page-footer 
+	{
+		background-color: #0e1451;
+        bottom:0;
+        top: 50px;
+		padding-bottom: 100px;
+        position:fixed;
+	}
+
+  a {
+  color:darkblue;
+  font-weight:bold;
+  font-size:20px;
+  padding: 1px;
+}
+#homediv{
+
+	color:black;
+	background-image: url('/static/justiceimg.jpg');
+	background-size:cover;
+	height:700px;
+	background-position: center;
+}
+</style>
+</head>
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark shadow-lg">
+    <a class="navbar-brand" href="">Complaint Registration Management System</a>
+
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/officer/retoffdash">Dashboard</a>
+        </li>        
+      </ul><!-- LOG ON TO codeastro.com FOR MORE PROJECTS -->
+                <li class="nav-item"> 
+                <a class="nav-link" href="/officer/logout" style="color:cornflowerblue">Logout</a>
+              </li>                                   
+      </form>
+    </div>
+  </nav>
+<body>
+  <div id="homediv">
+    <center>
+      {%for i in pro3 %}
+       <table  border="solid" style="background-color:darkgray;height: 150px;width:200; color:black;font-size: x-large;">
+          <tr><td>ID</td><td>{{i.id}}</td></tr>
+          <tr><td>Name </td><td>{{i.name}}</td></tr>
+          <tr><td>Place</td><td>{{i.place}}</td></tr>
+          <tr><td>Designation</td><td>{{i.designation}}</td></tr>
+          <tr><td>Mobile</td><td>{{i.mobile}}</td></tr>
+  
+       </table>
+       {%endfor%}
+  </center>
+  </div>
+</body>
+</html>

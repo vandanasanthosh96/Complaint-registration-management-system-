@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Complaint Management - Django</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style type="text/css">
+
+
+
+html {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.page-footer 
+	{
+		background-color: #0e1451;
+        bottom:0;
+        top: 50px;
+		padding-bottom: 100px;
+        position:fixed;
+	}
+
+  a {
+  color:darkblue;
+  font-weight:bold;
+  font-size:20px;
+  padding: 1px;
+}
+#homediv{
+
+	color:black;
+	background-image: url('/static/justiceimg.jpg');
+	background-size:cover;
+	height:700px;
+	background-position: center;
+}
+</style>
+</head>
+
+		<nav class="navbar navbar-expand-xl navbar-dark bg-dark shadow-lg">
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				  <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="navbar-brand" href="">Complaint Registration Management System</a>
+            </li>
+				  </ul>
+				  <form class="form-inline my-2 my-lg-0">
+					<ul class="nav navbar-nav navbar-right">
+					
+						<li class="nav-item">
+						   <a class="nav-link" href="pubprofile"><span class="fi-account-login"></span>My Profile </a>
+						</li>
+            <li class="nav-item">
+							<a class="nav-link" href="{%url 'logout' %}">Logout</a>
+						</li>
+					</ul>
+				  </form>
+				</div>
+		</nav>
+
+<body>
+  <div id="homediv">
+    <h4 style=text-align:center;>Here you can post your complaints to the authorities by online.</h4>
+    <p><center>WELCOME  {{name}}</center></p>
+    
+
+	<br>
+	<form action="/public/dashboard" method="post">
+		{%csrf_token%}
+    <center>
+		<table style="border:1px solid black;" >
+            <tr style="border:1px solid black">
+                <td> 
+                    <a href="{%url 'compreg' %}">Register complaints</a>
+                </td>
+            </tr>
+            <tr style="border:1px solid black">
+                <td> 
+                  <a href="{%url 'mycomplaints'%}">My Complaints </a>
+                </td>
+            </tr>
+    </table>
+    </center>
+    <br>
+    {% if messages %}
+<ul class="messages" type="none" >
+    {% for message in messages %}
+  <li><h6 style="color:white;text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> {{ message }}</h6></li>
+    {% endfor %}
+</ul>
+{% endif %}
+</form>
+  </div>  
+	<div class="push">
+    <footer>
+      <center>
+        <p>&copy; Complaint Management System - Developed by Vandana Santhosh & Arathy Sooraj<br></p>
+      </center>
+    </footer>
+  </div>
+</body>
+</html>

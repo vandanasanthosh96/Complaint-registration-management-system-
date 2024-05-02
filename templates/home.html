@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Complaint Management - Django</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style type="text/css">
+
+
+
+html {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.page-footer 
+	{
+		background-color: #0e1451;
+        bottom:0;
+        top: 50px;
+		padding-bottom: 100px;
+        position:fixed;
+	}
+
+a {
+  color:darkblue;
+  font-weight:bold;
+  font-size:20px;
+  padding: 1px;
+}
+#homediv{
+
+	color:black;
+	background-image: url('/static/justiceimg.jpg');
+	background-size:cover;
+	height:700px;
+	background-position: center;
+}
+</style>
+</head>
+
+		<nav class="navbar navbar-expand-xl navbar-dark bg-dark shadow-lg">
+				<a class="navbar-brand" href="">Complaint Registration Management System</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+			  
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				  <ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+					  <a class="nav-link" href="/">Home</a>
+					</li>
+														
+				  </ul>
+				  <form class="form-inline my-2 my-lg-0">
+					<ul class="nav navbar-nav navbar-right">
+					
+					<!-- <li	class="nav-item">
+						<a class="nav-link" href="my-crms-secret-admin-url/"><span class="fi-account-login"></span>Admin</a>
+					 </li> -->
+
+						<li class="nav-item">
+							<a class="nav-link" href="/accounts/login">Officer</a>
+						</li>
+        
+                        <li class="nav-item">
+							<a class="nav-link" href="/accounts/login">Staff</a>
+						</li>
+					  </ul>
+				  </form>
+				</div>
+			  </nav>
+
+<body >
+	<div id="homediv">
+		
+		<h4 style="text-align:center;color:#0e1451;font-style: oblique;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Here you can post your complaints to the authorities by online.</h4>
+		<p><center style="color:#0e1451;font-size:x-large;">login to continue</center></p><br>
+		<center>
+		<table  height="200 px" width="200 px" style="display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 30vh;
+		margin: 0;">
+			<tr><td>
+				<center><a  href="signup" style="width:32px;
+					height:32px;font-size:40px;">SIGNUP</a></center>
+			<br>
+				<center><a  href="/accounts/login" style="width:32px;
+					height:32px; font-size:40px;">SIGN IN</a></center>
+			</td></tr>
+		</table>
+	</center>
+</div> 
+ 
+<footer class="bg-dark text-light" style="height:50px;">
+  <center> &copy; Complaint Management System - Developed by Vandana Santhosh & Arathy Sooraj </center>
+</footer>
+</body>
+</html>

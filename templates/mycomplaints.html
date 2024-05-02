@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Complaint Management - Django</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style type="text/css">
+
+
+
+html {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.page-footer 
+	{
+		background-color: #0e1451;
+        bottom:0;
+        top: 50px;
+		padding-bottom: 100px;
+        position:fixed;
+	}
+a{
+  color:black
+
+}
+
+#homediv{
+
+color:black;
+background-image: url('/static/justiceimg.jpg');
+background-size:cover;
+height:700px;
+background-position: center;
+}
+button{
+background-color: grey;
+}
+</style>
+</head>
+
+		<nav class="navbar navbar-expand-xl navbar-dark bg-dark shadow-lg">
+				<a class="navbar-brand" href="">Complaint System</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+			  
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				  <ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+					  <a class="nav-link" href="Dashboard">Dashboard</a>
+					</li>
+					
+				
+				  </ul>
+				  		  <li class="nav-item"> 
+							<a class="nav-link" href="logout">Logout</a>
+						  </li>									 
+					  </ul>
+				  </form>
+				</div>
+			  </nav>
+<body>
+  <div id="homediv">
+
+    <center>
+      <form method="POST">
+       {%csrf_token%}
+       <table  style="background-color:white;height: 50px;width: 60;border-style:solid; border-color: #000;">
+           <tr style=" font-weight: 500; text-align: center;background-color:cornflowerblue"> 
+            <td>Complaint Id</td>
+            <td>Complaint Type</td> 
+            <td>Date of occurance</td> 
+            <td>Place of occurance  </td>
+            <td>  Status  </td>
+            <td>Action</td>
+           </tr> 
+           {% for item in objs %}  
+           <tr style="color:black;text-align: center;">
+             <td>{{ item.id}}</td>
+             <td>{{ item.complainttype}}</td>           
+             <td>{{ item.Date_occurance }}</td>
+             <td>{{ item.place_occurance }}</td>        
+             <td>{{ item.status }}</td>
+             <td><button type="submit"><a href="{% url 'delete_complaint' item.id %}">Delete Complaint</a></button></td>
+           </tr>
+           {% endfor %}
+   
+        </table>
+      </form>
+    </center>
+
+  </div>
+
+    
+</body>
+</html>
